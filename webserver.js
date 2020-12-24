@@ -1,6 +1,3 @@
-// A BASIC Node server
-// Routing Requests
-
 const http = require("http");
 const url = require("url");
 
@@ -16,6 +13,8 @@ const server = http.createServer(function(req, res) {
   let qs = parsedURL.query;
   let headers = req.headers;
   let method = req.method.toLowerCase();
+
+  var port = process.env.PORT || 8080
 
   req.on("data", function() {
     console.log("got some data");
@@ -40,7 +39,7 @@ const server = http.createServer(function(req, res) {
   });
 });
 
-server.listen( function() {
+server.listen(port, function() {
   console.log("Listening on port 1881");
 });
 
